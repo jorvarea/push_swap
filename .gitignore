@@ -1,0 +1,6 @@
+.DS_STORE
+*.out
+*.o
+*.a
+.vscode
+*.gch
