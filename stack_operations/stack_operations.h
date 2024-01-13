@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 02:12:30 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 14:57:54 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:10:38 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,7 @@
 # define STACK_OPERATIONS_H
 
 # include "ft_printf.h"
-
-typedef struct s_stack
-{
-	char	id;
-	int		*elms;
-	int		nelms;
-	int		capacity;
-}			t_stack;
+# include "stack_struct.h"
 
 void		ft_swap(int *a, int *b);
 void		insert_top_stack(t_stack *stack, int element);
