@@ -1,0 +1,6 @@
+[submodule "ft_lib/get_next_line"]
+	path = ft_lib/get_next_line
+	url = git@github.com:jorvarea/get_next_line.git
+[submodule "ft_lib/printf"]
+	path = ft_lib/printf
+	url = git@github.com:jorvarea/printf.git
