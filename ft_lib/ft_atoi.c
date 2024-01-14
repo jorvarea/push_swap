@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 17:17:51 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/14 15:47:02 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/14 15:47:42 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+int	ft_atoi(const char *str, bool )
+{
+	int	i;
+	int	num;
+	int	sign;
 
-# include "stack_operations.h"
-# include "stack_struct.h"
-
-void print_stacks(t_stack *a, t_stack *b);
-
-#endif
+	num = 0;
+	sign = 1;
+	i = 0;
+	while (ft_isspace(str[i]))
+		i++;
+	if (str[i] == '-')
+	{
+		sign = -1;
+		i++;
+	}
+	else if (str[i] == '+')
+	{
+		sign = 1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+		num = num * 10 + (str[i++] - '0');
+	return (num * sign);
+}

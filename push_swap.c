@@ -1,21 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 17:17:51 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/13 23:21:44 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include "stack_operations.h"
-# include "stack_struct.h"
-
-void print_stacks(t_stack *a, t_stack *b);
-
-#endif
+/* Idea for algorithm: Kinda like selection sort. You look for the lowest number in the stack and rotate until
+you get it to the top, then push it to b. We can rotate up or down depending on what's faster. When a is empty,
+push everything to it */
