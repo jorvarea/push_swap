@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_utils.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/14 17:54:45 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/13 16:09:08 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/14 17:32:39 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef STACK_UTILS_H
+# define STACK_UTILS_H
 
-# include "stack_operations.h"
-# include "stack_utils.h"
-# include <stdbool.h>
+# include "stdbool.h"
+# include "stdlib.h"
 
-void	print_stacks(t_stack *a, t_stack *b);
-void	extract_input(t_stack *s, int stack_size, char **input,
-			bool *read_error);
+typedef struct s_stack
+{
+	char	id;
+	int		*elms;
+	int		nelms;
+	int		capacity;
+}			t_stack;
+
+void		initialize_stacks(t_stack *a, t_stack *b, int stack_size,
+				bool *malloc_error);
+void		free_stacks(t_stack *a, t_stack *b);
 
 #endif

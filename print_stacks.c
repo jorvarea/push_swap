@@ -6,12 +6,12 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:41:27 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 16:35:49 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:00:30 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "stack_struct.h"
+#include "stack_utils.h"
 #define DASH_LINE_LENGHT 80
 
 static int	max(int a, int b)

@@ -14,7 +14,7 @@
 
 void	rotate_stack_up(t_stack *s)
 {
-	int i;
+	int	i;
 	int	tmp;
 
 	if (s->nelms >= 2)

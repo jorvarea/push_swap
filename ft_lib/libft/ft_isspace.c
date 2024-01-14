@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_struct.h                                     :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 16:09:08 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 16:10:07 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/14 15:50:02 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/14 15:59:08 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_STRUCT_H
-# define STACK_STRUCT_H
+#include "libft.h"
 
-typedef struct s_stack
+bool	ft_isspace(char c)
 {
-	char	id;
-	int		*elms;
-	int		nelms;
-	int		capacity;
-}			t_stack;
-
-#endif
+	return ((c >= 9 && c <= 13) || c == ' ');
+}

@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_and_store_input.c                         :+:      :+:    :+:   */
+/*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 17:13:03 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 17:18:03 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/14 17:31:59 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/14 17:32:15 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "stack_struct.h"
-#include "stdbool.h"
+#include "stack_utils.h"
 
-bool validate_and_store_input()
+void	free_stacks(t_stack *a, t_stack *b)
 {
-    
+	if (a->elms != NULL)
+		free(a->elms);
+	if (b->elms != NULL)
+		free(b->elms);
+	a->capacity = 0;
+	b->capacity = 0;
+	a->nelms = 0;
+	b->nelms = 0;
+	a->elms = NULL;
+	b->elms = NULL;
 }
