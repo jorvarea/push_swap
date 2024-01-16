@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_stack.c                                       :+:      :+:    :+:   */
+/*   list_extract_first.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 11:20:20 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 14:43:15 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/16 15:51:20 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/16 16:45:00 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack_operations.h"
+#include "libft.h"
 
-void	push_top_stack(t_stack *dest, t_stack *src)
+t_list	*list_extract_first(t_list **head)
 {
-	if (src->nelms > 0)
+	t_list	*extracted_element;
+	t_list	*new_head;
+
+	extracted_element = *head;
+	if (extracted_element != NULL)
 	{
-		insert_top_stack(dest, src->elms[0]);
-		remove_top_stack(src);
-		ft_printf("p%c\n", dest->id);
+		new_head = extracted_element->next;
+		*head = new_head;
+		extracted_element->next = NULL;
 	}
+	return (extracted_element);
 }

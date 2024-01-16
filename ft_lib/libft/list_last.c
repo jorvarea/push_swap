@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.h                                      :+:      :+:    :+:   */
+/*   list_last.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 16:09:08 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/14 17:32:39 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/10/10 20:48:37 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/16 17:38:09 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STACK_UTILS_H
-# define STACK_UTILS_H
+#include "libft.h"
 
-# include "stdbool.h"
-# include "stdlib.h"
-
-typedef struct s_stack
+t_list	*list_last(t_list *head)
 {
-	char	id;
-	int		*elms;
-	int		nelms;
-	int		capacity;
-}			t_stack;
+	t_list	*current;
 
-void		initialize_stacks(t_stack *a, t_stack *b, int stack_size,
-				bool *malloc_error);
-void		free_stacks(t_stack *a, t_stack *b);
-
-#endif
+	current = head;
+	while (current != NULL && current->next != NULL)
+		current = current->next;
+	return (current);
+}

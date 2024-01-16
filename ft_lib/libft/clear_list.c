@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stacks.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 17:31:59 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/14 17:32:15 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/10/11 10:04:41 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/16 14:13:10 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack_utils.h"
+#include "libft.h"
 
-void	free_stacks(t_stack *a, t_stack *b)
+void	clear_list(t_list **head)
 {
-	if (a->elms != NULL)
-		free(a->elms);
-	if (b->elms != NULL)
-		free(b->elms);
-	a->capacity = 0;
-	b->capacity = 0;
-	a->nelms = 0;
-	b->nelms = 0;
-	a->elms = NULL;
-	b->elms = NULL;
+	t_list	*list_element;
+	t_list	*temp;
+
+	list_element = *head;
+	while (list_element != NULL)
+	{
+		temp = list_element->next;
+		free(list_element);
+		list_element = temp;
+	}
+	*head = NULL;
 }

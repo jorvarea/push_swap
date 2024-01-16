@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_stack.c                                       :+:      :+:    :+:   */
+/*   list_size.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 01:47:09 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/13 14:54:46 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/10/10 20:34:09 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/16 17:37:51 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stack_operations.h"
+#include "libft.h"
 
-void	swap_top_stack(t_stack *s)
+int	list_size(t_list *head)
 {
-	if (s->nelms >= 2)
+	t_list	*current;
+	int		i;
+
+	current = head;
+	i = 0;
+	while (current != NULL)
 	{
-		ft_swap(&s->elms[0], &s->elms[1]);
-		ft_printf("s%c\n", s->id);
+		current = current->next;
+		i++;
 	}
-}
-
-void	swap_top_stack_both(t_stack *s1, t_stack *s2)
-{
-	swap_top_stack(s1);
-	swap_top_stack(s2);
-	if (s1->nelms >= 2 || s2->nelms >= 2)
-		ft_printf("ss\n");
+	return (i);
 }

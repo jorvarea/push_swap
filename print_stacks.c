@@ -6,18 +6,12 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:41:27 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/14 18:00:30 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/16 18:00:57 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "stack_utils.h"
+#include "push_swap.h"
 #define DASH_LINE_LENGHT 80
-
-static int	max(int a, int b)
-{
-	return (a * (a >= b) + b * (b > a));
-}
 
 static void	print_dashed_line(int lenght)
 {
@@ -31,25 +25,24 @@ static void	print_dashed_line(int lenght)
 	}
 }
 
-void	print_stacks(t_stack *a, t_stack *b)
-{
-	int	i;
-	int	cont_a;
-	int	cont_b;
-	int	max_stack_lenght;
-
-	max_stack_lenght = max(a->nelms, b->nelms);
+void	print_stacks(t_list *a, t_list *b)
+{	
 	print_dashed_line(DASH_LINE_LENGHT);
-	i = 0;
-	cont_a = 0;
-	cont_b = 0;
-	while (i < max_stack_lenght)
+	while (a != NULL || b != NULL)
 	{
-		if (a->nelms >= max_stack_lenght - i)
-			ft_printf("%d ", a->elms[cont_a++]);
-		if (b->nelms >= max_stack_lenght - i)
-			ft_printf("%d\n", b->elms[cont_b++]);
-		i++;
+		if (a != NULL)
+		{
+			ft_printf("%d ", a->number);
+			a = a->next;		
+		}
+		else
+			ft_printf("  ");
+		if (b != NULL)
+		{
+			ft_printf("%d", b->number);
+			b = b->next;
+		}
+		ft_printf("\n");
 	}
 	ft_printf("- -\n");
 	ft_printf("a b\n");
