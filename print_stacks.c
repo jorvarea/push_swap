@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:41:27 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/16 18:00:57 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/17 16:40:55 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ static void	print_dashed_line(int lenght)
 }
 
 void	print_stacks(t_list *a, t_list *b)
-{	
+{
 	print_dashed_line(DASH_LINE_LENGHT);
 	while (a != NULL || b != NULL)
 	{
 		if (a != NULL)
 		{
 			ft_printf("%d ", a->number);
-			a = a->next;		
+			a = a->next;
 		}
 		else
 			ft_printf("  ");
