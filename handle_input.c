@@ -6,35 +6,42 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:13:03 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/17 16:55:12 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 00:43:27 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+static void parse_and_store(t_list **stack, char *input, bool *error)
+{
+	t_list *new_element;
+	int number;
+	
+	number = ft_atoi(input, error);
+	if (!*error)
+	{
+		new_element = list_new_element(number);
+		*error = new_element == NULL;
+		if (!*error)
+			list_add_back(stack, new_element);
+	}
+}
+
 t_list	*extract_input(int input_size, char **input)
 {
 	t_list *stack;
-	t_list *new_element;
-	bool read_error;
-	int number;
+	bool error;
 	int	i;
 
 	stack = NULL;
-	read_error = false;
+	error = false;
 	i = 0;
-	while (i < input_size && !read_error)
+	while (i < input_size && !error)
 	{
-		number = ft_atoi(input[i], &read_error);
-		if (!read_error)
-		{
-			new_element = list_new_element(number);
-			// need to check the null allocation, could write another function and create malloc_error, could eliminate i and use input_size--
-			list_add_back(&stack, new_element);
-		}
+		parse_and_store(&stack, input[i], &error);
 		i++;
 	}
-	if (read_error)
+	if (error)
 	{
 		clear_list(&stack);
 		stack = NULL;
