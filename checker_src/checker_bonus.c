@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:36:06 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 14:39:44 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:00:08 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ int	main(int argc, char **argv)
 	b = NULL;
     ft_printf("Initial state:\n");
 	print_stacks(a, b);
-    line = get_next_line(0);
-    ft_printf("Line %s", line);
+	line = get_next_line(0);
+	while (line && line[0] != '\n')
+    {
+    	ft_printf("Line %s", line);
+		line = get_next_line(0);
+	}
 	return (0);
 }
