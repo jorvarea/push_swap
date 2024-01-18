@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 20:31:32 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 20:31:51 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 22:03:26 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	process_instruction(char *line, t_list **a, t_list **b, bool *error)
 		rotate_stack_down(b);
 	else if (ft_strcmp(line, "rrr\n") == 0)
 		rotate_stack_down_both(a, b);
-	else
+	else if (line[0] != '\n')
 		*error = true;
 }
