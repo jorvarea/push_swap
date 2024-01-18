@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 20:32:07 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:44:58 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 t_list	*extract_input(int input_size, char **input);
 void	print_stacks(t_list *a, t_list *b);
 void	process_instruction(char *line, t_list **a, t_list **b, bool *error);
+bool    is_stack_sorted(t_list *head);
 
 void	swap_top_stack(t_list **head);
 void	swap_top_stack_both(t_list **a, t_list **b);
