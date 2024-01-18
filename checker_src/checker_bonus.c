@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:36:06 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 22:18:05 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:16:14 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int	main(int argc, char **argv)
 	instruction_error = false;
 	if (a != NULL)
 	{
-		ft_printf("Initial state:\n");
-		print_stacks(a, b);
 		keep_going = true;
 		while (keep_going && !instruction_error)
 		{
@@ -50,8 +48,6 @@ int	main(int argc, char **argv)
 				process_instruction(line, &a, &b, &instruction_error);
 				free(line);
 			}
-			ft_printf("Current state:\n");
-			print_stacks(a, b);
 		}
 	}
 	handle_output(a == NULL, b == NULL, instruction_error, is_stack_sorted(a));
