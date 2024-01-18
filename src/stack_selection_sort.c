@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:20:21 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 23:48:30 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:50:49 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ void	stack_selection_sort(t_list **a, t_list **b, int stack_len)
         {
 		    push_top_stack(b, a);
 		    ft_printf("pb\n");
+		    stack_len--;
         }
-		stack_len--;
 	}
 	push_sorted_stack_back(a, b);
 }
