@@ -6,11 +6,12 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:41:27 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/17 16:40:55 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 02:02:04 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include "ft_printf.h"
 #define DASH_LINE_LENGHT 80
 
 static void	print_dashed_line(int lenght)

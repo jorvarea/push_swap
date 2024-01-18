@@ -6,37 +6,63 @@
 #    By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 19:52:12 by jorvarea          #+#    #+#              #
-#    Updated: 2023/11/14 20:45:39 by jorvarea         ###   ########.fr        #
+#    Updated: 2024/01/18 02:42:50 by jorvarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= libftprintf.a
-LIBFT 				= libft/libft.a
+NAME				= push_swap
+
+LIBFT_DIR 				= lib/libft
+GET_NEXT_LINE_DIR		= lib/get_next_line
+PRINTF_DIR 				= lib/printf
+PUSH_SWAP_UTILS_DIR 	= lib/push_swap_utils
+
+LIBFT 				= $(LIBFT_DIR)/libft.a
+GET_NEXT_LINE		= $(GET_NEXT_LINE_DIR)/get_next_line.a
+PRINTF 				= $(PRINTF_DIR)/printf.a
+PUSH_SWAP_UTILS 	= $(PUSH_SWAP_UTILS_DIR)/push_swap_utils.a
+
 CC					= gcc
 CFLAGS				= -Wall -Werror -Wextra
-SOURCE_FILES   		= $(wildcard ft_*.c)
-OBJECT_FILES		= $(SOURCE_FILES:.c=.o)
+SOURCE_DIR 			= src
+SOURCE_FILES   		= $(wildcard $(SOURCE_DIR)/*.c)
+OBJECT_DIR 			= obj
+OBJECT_FILES		= $(SOURCE_FILES:$(SOURCE_DIR)/%.c=$(OBJECT_DIR)/%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECT_FILES) $(LIBFT) ft_printf.h
-	@cp $(LIBFT) .
-	@mv libft.a $(NAME)
-	@ar -rcs $(NAME) $(OBJECT_FILES)
+$(NAME): $(OBJECT_FILES) $(LIBFT) $(GET_NEXT_LINE) $(PRINTF) $(PUSH_SWAP_UTILS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJECT_FILES) $(LIBFT) $(GET_NEXT_LINE) $(PRINTF) $(PUSH_SWAP_UTILS)
 
 $(LIBFT):
-	@$(MAKE) -C libft
+	@$(MAKE) -C $(LIBFT_DIR)
 
-%.o: %.c
+$(GET_NEXT_LINE):
+	@$(MAKE) -C $(GET_NEXT_LINE_DIR)
+
+$(PRINTF):
+	@$(MAKE) -C $(PRINTF_DIR)
+
+$(PUSH_SWAP_UTILS):
+	@$(MAKE) -C $(PUSH_SWAP_UTILS)
+
+$(OBJECT_DIR)/%.o: %.c
+	@mkdir -p $(OBJECT_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJECT_FILES)
-	@$(MAKE) -C libft clean
+	@rm -rf $(OBJECT_DIR)
+	@$(MAKE) -C $(LIBFT_DIR) clean
+	@$(MAKE) -C $(GET_NEXT_LINE_DIR) clean
+	@$(MAKE) -C $(PRINTF_DIR) clean
+	@$(MAKE) -C $(PUSH_SWAP_UTILS) clean
 	
 fclean: clean
 	@rm -f $(NAME)
-	@$(MAKE) -C libft fclean
+	@$(MAKE) -C $(LIBFT_DIR) fclean
+	@$(MAKE) -C $(GET_NEXT_LINE_DIR) fclean
+	@$(MAKE) -C $(PRINTF_DIR) fclean
+	@$(MAKE) -C $(PUSH_SWAP_UTILS) fclean
 	
 re: fclean all
 
