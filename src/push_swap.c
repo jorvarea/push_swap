@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 01:56:09 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 02:54:18 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ what's faster. When a is empty, push everything to it */
 
 int	main(int argc, char **argv)
 {
-	t_list	a;
-	t_list	b;
+	t_list	*a;
+	t_list	*b;
 	
-	extract_input(argc - 1, &argv[1]);
-	print_stacks(&a, &b);
+	a = extract_input(argc - 1, &argv[1]);
+	b = NULL;
+	print_stacks(a, b);
 	return (0);
 }

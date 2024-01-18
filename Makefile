@@ -6,28 +6,28 @@
 #    By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 19:52:12 by jorvarea          #+#    #+#              #
-#    Updated: 2024/01/18 02:42:50 by jorvarea         ###   ########.fr        #
+#    Updated: 2024/01/18 02:56:16 by jorvarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME				= push_swap
+NAME					= push_swap
 
 LIBFT_DIR 				= lib/libft
 GET_NEXT_LINE_DIR		= lib/get_next_line
 PRINTF_DIR 				= lib/printf
 PUSH_SWAP_UTILS_DIR 	= lib/push_swap_utils
 
-LIBFT 				= $(LIBFT_DIR)/libft.a
-GET_NEXT_LINE		= $(GET_NEXT_LINE_DIR)/get_next_line.a
-PRINTF 				= $(PRINTF_DIR)/printf.a
-PUSH_SWAP_UTILS 	= $(PUSH_SWAP_UTILS_DIR)/push_swap_utils.a
+LIBFT 					= $(LIBFT_DIR)/libft.a
+GET_NEXT_LINE			= $(GET_NEXT_LINE_DIR)/get_next_line.a
+PRINTF 					= $(PRINTF_DIR)/printf.a
+PUSH_SWAP_UTILS 		= $(PUSH_SWAP_UTILS_DIR)/push_swap_utils.a
 
-CC					= gcc
-CFLAGS				= -Wall -Werror -Wextra
-SOURCE_DIR 			= src
-SOURCE_FILES   		= $(wildcard $(SOURCE_DIR)/*.c)
-OBJECT_DIR 			= obj
-OBJECT_FILES		= $(SOURCE_FILES:$(SOURCE_DIR)/%.c=$(OBJECT_DIR)/%.o)
+CC						= gcc
+CFLAGS 					= -Wall -Werror -Wextra -I$(LIBFT_DIR) -I$(GET_NEXT_LINE_DIR) -I$(PRINTF_DIR) -I$(PUSH_SWAP_UTILS_DIR)
+SOURCE_DIR 				= src
+SOURCE_FILES   			= $(wildcard $(SOURCE_DIR)/*.c)
+OBJECT_DIR 				= obj
+OBJECT_FILES			= $(SOURCE_FILES:$(SOURCE_DIR)/%.c=$(OBJECT_DIR)/%.o)
 
 all: $(NAME)
 
@@ -44,9 +44,9 @@ $(PRINTF):
 	@$(MAKE) -C $(PRINTF_DIR)
 
 $(PUSH_SWAP_UTILS):
-	@$(MAKE) -C $(PUSH_SWAP_UTILS)
+	@$(MAKE) -C $(PUSH_SWAP_UTILS_DIR)
 
-$(OBJECT_DIR)/%.o: %.c
+$(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c
 	@mkdir -p $(OBJECT_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
