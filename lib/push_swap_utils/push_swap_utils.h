@@ -17,10 +17,10 @@
 # include "libft.h"
 
 t_list	*extract_input(int input_size, char **input);
-void    initialize_stacks(int argc, char **argv, t_list **a, t_list **b);
+void	initialize_stacks(int argc, char **argv, t_list **a, t_list **b);
 void	print_stacks(t_list *a, t_list *b);
 void	process_instruction(char *line, t_list **a, t_list **b, bool *error);
-bool    is_stack_sorted(t_list *head);
+bool	is_stack_sorted(t_list *head);
 
 void	swap_top_stack(t_list **head);
 void	swap_top_stack_both(t_list **a, t_list **b);

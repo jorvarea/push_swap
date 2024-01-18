@@ -15,7 +15,8 @@
 #include "libft.h"
 #include "push_swap_utils.h"
 
-static void handle_output(bool a_is_null, bool b_is_null, bool instruction_error, bool is_sorted)
+static void	handle_output(bool a_is_null, bool b_is_null,
+		bool instruction_error, bool is_sorted)
 {
 	if (!a_is_null && !instruction_error && b_is_null && is_sorted)
 		ft_printf("OK\n");

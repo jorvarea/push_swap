@@ -49,7 +49,7 @@ t_list	*extract_input(int input_size, char **input)
 	return (stack);
 }
 
-void initialize_stacks(int argc, char **argv, t_list **a, t_list **b)
+void	initialize_stacks(int argc, char **argv, t_list **a, t_list **b)
 {
 	*a = extract_input(argc - 1, &argv[1]);
 	*b = NULL;
