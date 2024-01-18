@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 20:37:54 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 20:44:48 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:46:10 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ bool is_stack_sorted(t_list *head)
         previous = current;
         current = current->next;
     }
+    return (is_sorted);
 }

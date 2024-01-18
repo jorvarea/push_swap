@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 02:54:18 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:57:54 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	main(int argc, char **argv)
 	t_list	*a;
 	t_list	*b;
 
-	a = extract_input(argc - 1, &argv[1]);
-	b = NULL;
+	initialize_stacks(argc, argv, a, b);
 	print_stacks(a, b);
 	return (0);
 }

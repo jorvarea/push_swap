@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:13:03 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 02:01:33 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:55:50 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,10 @@ t_list	*extract_input(int input_size, char **input)
 		stack = NULL;
 	}
 	return (stack);
+}
+
+void initialize_stacks(int argc, char **argv, t_list *a, t_list *b)
+{
+	a = extract_input(argc - 1, &argv[1]);
+	b = NULL;
 }
