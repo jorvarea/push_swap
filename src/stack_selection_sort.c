@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:20:21 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 23:23:39 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 23:29:16 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	stack_selection_sort(t_list **a, t_list **b, int stack_len)
 {
 	int	min_pos;
 
-	while (stack_len > 0)
+	while (stack_len > 1)
 	{
 		find_min(*a, &min_pos);
 		bring_min_top(a, stack_len, min_pos);
