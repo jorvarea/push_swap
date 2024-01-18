@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   stack_bubble_sort.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/19 00:10:34 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/19 00:02:22 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/19 00:25:58 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	stack_bubble_sort(t_list **a)
 {
-	t_list	*a;
-	t_list	*b;
-
-	initialize_stacks(argc, argv, &a, &b);
-	if (a != NULL)
-		stack_bubble_sort(&a);
-	clear_list(&a);
-	clear_list(&b);
-	return (0);
+	while (!is_stack_sorted(*a))
+	{
+		if ((*a)->number > (*a)->next->number && !is_stack_sorted((*a)->next))
+        {
+            swap_top_stack(a);
+            ft_printf("sa\n");
+        }
+        if (!is_stack_sorted(*a))
+        {
+            rotate_stack_up(a);
+            ft_printf("ra\n");
+        }
+	}
 }
