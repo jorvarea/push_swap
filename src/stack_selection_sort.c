@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_selection_sort.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 23:18:56 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/18 23:20:21 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/18 23:23:39 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_utils.h"
-#include "ft_printf.h"
+#include "push_swap.h"
 
-void find_min(t_list *head, int *min_pos)
+static void	find_min(t_list *head, int *min_pos)
 {
-	t_list *current;
-	int min;
-	int i;
+	t_list	*current;
+	int		min;
+	int		i;
 
 	current = head;
 	i = 0;
@@ -35,7 +34,7 @@ void find_min(t_list *head, int *min_pos)
 	}
 }
 
-void bring_min_top(t_list **head, int stack_len, int min_pos)
+static void	bring_min_top(t_list **head, int stack_len, int min_pos)
 {
 	if (min_pos <= stack_len / 2)
 	{
@@ -48,7 +47,7 @@ void bring_min_top(t_list **head, int stack_len, int min_pos)
 	}
 	else
 	{
-		while(min_pos < stack_len)
+		while (min_pos < stack_len)
 		{
 			rotate_stack_down(head);
 			ft_printf("rra\n");
@@ -57,7 +56,7 @@ void bring_min_top(t_list **head, int stack_len, int min_pos)
 	}
 }
 
-void push_sorted_stack_back(t_list **a, t_list **b)
+static void	push_sorted_stack_back(t_list **a, t_list **b)
 {
 	while (*b)
 	{
@@ -66,10 +65,10 @@ void push_sorted_stack_back(t_list **a, t_list **b)
 	}
 }
 
-void stack_selection_sort(t_list **a, t_list **b, int stack_len)
+void	stack_selection_sort(t_list **a, t_list **b, int stack_len)
 {
-	int min_pos;
-	
+	int	min_pos;
+
 	while (stack_len > 0)
 	{
 		find_min(*a, &min_pos);
@@ -79,17 +78,4 @@ void stack_selection_sort(t_list **a, t_list **b, int stack_len)
 		stack_len--;
 	}
 	push_sorted_stack_back(a, b);
-}
-
-int	main(int argc, char **argv)
-{
-	t_list	*a;
-	t_list	*b;
-
-	initialize_stacks(argc, argv, &a, &b);
-	if (a != NULL)
-		stack_selection_sort(&a, &b, argc - 1);
-	clear_list(&a);
-	clear_list(&b);
-	return (0);
 }

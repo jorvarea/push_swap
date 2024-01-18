@@ -6,7 +6,7 @@
 #    By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 19:52:12 by jorvarea          #+#    #+#              #
-#    Updated: 2024/01/18 14:54:10 by jorvarea         ###   ########.fr        #
+#    Updated: 2024/01/18 23:26:02 by jorvarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ BONUS_OBJECT_FILES		= $(BONUS_SOURCE_FILES:$(BONUS_SOURCE_DIR)/%.c=$(OBJECT_DIR)
 
 all: $(NAME)
 
-$(NAME): $(OBJECT_FILES) $(LIBFT) $(PRINTF) $(PUSH_SWAP_UTILS)
+$(NAME): $(OBJECT_FILES) $(LIBFT) $(PRINTF) $(PUSH_SWAP_UTILS) $(SOURCE_DIR)/push_swap.h
 	@echo "${YELLOW}Linking $(NAME)...${NC}"
 	@mkdir -p $(BIN_DIR)
 	@$(CC) $(CFLAGS) -o $(BIN_DIR)/$(NAME) $(OBJECT_FILES) $(LIBFT) $(PRINTF) $(PUSH_SWAP_UTILS)
