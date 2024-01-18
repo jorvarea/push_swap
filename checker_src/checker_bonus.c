@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:36:06 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 21:50:28 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:53:10 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "libft.h"
 #include "push_swap_utils.h"
 
-void handle_output(bool a_is_null, bool b_is_null, bool instruction_error, bool is_sorted)
+static void handle_output(bool a_is_null, bool b_is_null, bool instruction_error, bool is_sorted)
 {
 	if (!a_is_null && !instruction_error && b_is_null && is_sorted)
 		ft_printf("OK\n");
