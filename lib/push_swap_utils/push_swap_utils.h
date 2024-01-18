@@ -6,18 +6,19 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 16:23:01 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 20:32:07 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_UTILS_H
 # define PUSH_SWAP_UTILS_H
 
-# include "libft.h"
 # include "ft_printf.h"
+# include "libft.h"
 
 t_list	*extract_input(int input_size, char **input);
 void	print_stacks(t_list *a, t_list *b);
+void	process_instruction(char *line, t_list **a, t_list **b, bool *error);
 
 void	swap_top_stack(t_list **head);
 void	swap_top_stack_both(t_list **a, t_list **b);
