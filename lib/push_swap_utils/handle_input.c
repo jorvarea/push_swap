@@ -12,11 +12,11 @@
 
 #include "libft.h"
 
-static void parse_and_store(t_list **stack, char *input, bool *error)
+static void	parse_and_store(t_list **stack, char *input, bool *error)
 {
-	t_list *new_element;
-	int number;
-	
+	t_list	*new_element;
+	int		number;
+
 	number = ft_atoi(input, error);
 	if (!*error)
 	{
@@ -29,9 +29,9 @@ static void parse_and_store(t_list **stack, char *input, bool *error)
 
 t_list	*extract_input(int input_size, char **input)
 {
-	t_list *stack;
-	bool error;
-	int	i;
+	t_list	*stack;
+	bool	error;
+	int		i;
 
 	stack = NULL;
 	error = false;
