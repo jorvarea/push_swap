@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:41:27 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 02:02:04 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 03:18:54 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	print_dashed_line(int lenght)
 		ft_printf("-");
 		i++;
 	}
+	ft_printf("\n");
 }
 
 void	print_stacks(t_list *a, t_list *b)

@@ -6,7 +6,7 @@
 #    By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/24 19:52:12 by jorvarea          #+#    #+#              #
-#    Updated: 2024/01/18 03:05:47 by jorvarea         ###   ########.fr        #
+#    Updated: 2024/01/18 03:27:30 by jorvarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,34 +35,34 @@ $(NAME): $(OBJECT_FILES) $(LIBFT) $(GET_NEXT_LINE) $(PRINTF) $(PUSH_SWAP_UTILS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJECT_FILES) $(LIBFT) $(GET_NEXT_LINE) $(PRINTF) $(PUSH_SWAP_UTILS)
 
 $(LIBFT):
-	@$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR)
 
 $(GET_NEXT_LINE):
-	@$(MAKE) -C $(GET_NEXT_LINE_DIR)
+	$(MAKE) -C $(GET_NEXT_LINE_DIR)
 
 $(PRINTF):
-	@$(MAKE) -C $(PRINTF_DIR)
+	$(MAKE) -C $(PRINTF_DIR)
 
 $(PUSH_SWAP_UTILS):
-	@$(MAKE) -C $(PUSH_SWAP_UTILS_DIR)
+	$(MAKE) -C $(PUSH_SWAP_UTILS_DIR)
 
 $(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c
-	@mkdir -p $(OBJECT_DIR)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	mkdir -p $(OBJECT_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -rf $(OBJECT_DIR)
-	@$(MAKE) -C $(LIBFT_DIR) clean
-	@$(MAKE) -C $(GET_NEXT_LINE_DIR) clean
-	@$(MAKE) -C $(PRINTF_DIR) clean
-	@$(MAKE) -C $(PUSH_SWAP_UTILS) clean
+	rm -rf $(OBJECT_DIR)
+	$(MAKE) -C $(LIBFT_DIR) clean
+	$(MAKE) -C $(GET_NEXT_LINE_DIR) clean
+	$(MAKE) -C $(PRINTF_DIR) clean
+	$(MAKE) -C $(PUSH_SWAP_UTILS_DIR) clean
 	
 fclean: clean
-	@rm -f $(NAME)
-	@$(MAKE) -C $(LIBFT_DIR) fclean
-	@$(MAKE) -C $(GET_NEXT_LINE_DIR) fclean
-	@$(MAKE) -C $(PRINTF_DIR) fclean
-	@$(MAKE) -C $(PUSH_SWAP_UTILS) fclean
+	rm -f $(NAME)
+	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(MAKE) -C $(GET_NEXT_LINE_DIR) fclean
+	$(MAKE) -C $(PRINTF_DIR) fclean
+	$(MAKE) -C $(PUSH_SWAP_UTILS_DIR) fclean
 	
 re: fclean all
 
