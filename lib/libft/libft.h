@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:50:43 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 16:07:34 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:13:11 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -28,6 +29,7 @@ bool				ft_isspace(char c);
 bool				ft_isdigit(int c);
 int					ft_atoi(const char *str, bool *read_error);
 int					ft_strcmp(const char *s1, const char *s2);
+void				ft_putstr_fd(char *str, int fd);
 
 void				clear_list(t_list **head);
 void				list_add_back(t_list **head, t_list *new_element);
