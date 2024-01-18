@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:36:06 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 20:55:36 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:43:12 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,25 +23,26 @@ int	main(int argc, char **argv)
 	bool	instruction_error;
 	bool 	is_sorted;
 
-	initialize_stacks(argc, argv, a, b);
+	initialize_stacks(argc, argv, &a, &b);
 	if (a != NULL)
 	{
 		ft_printf("Initial state:\n");
 		print_stacks(a, b);
-		line = get_next_line(0);
+		line = "";
 		while (line && line[0] != '\n' && !instruction_error)
 		{
+			line = get_next_line(STDIN_FILENO);
 			process_instruction(line, &a, &b, &instruction_error);
+			free(line);
 			ft_printf("Current state:\n");
 			print_stacks(a, b);
-			line = get_next_line(0);
 		}
 	}
 	is_sorted = is_stack_sorted(a);
 	if (a != NULL && !instruction_error && b == NULL && is_sorted)
-		ft_printf("OK");
+		ft_printf("OK\n");
 	else if (a != NULL && !instruction_error)
-		ft_printf("KO");
+		ft_printf("KO\n");
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	clear_list(&a);

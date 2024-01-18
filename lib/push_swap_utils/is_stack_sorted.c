@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 20:37:54 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 20:46:10 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 21:01:57 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ bool is_stack_sorted(t_list *head)
 
     is_sorted = true;
     previous = head;
-    current = head->next;
+    if (head != NULL)
+        current = head->next;
     while(previous && current && is_sorted)
     {
         if (previous->number > current->number)
