@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:50:43 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/16 16:17:03 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/18 03:17:18 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,6 @@ t_list				*list_last(t_list *head);
 int					list_size(t_list *head);
 t_list				*list_new_element(int number);
 t_list				*list_extract_first(t_list **head);
+t_list				*list_extract_last(t_list *head);
 
 #endif
