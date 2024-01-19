@@ -6,11 +6,27 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:13:03 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 21:03:39 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/19 14:12:25 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+bool is_duplicate(t_list *head, int number)
+{
+	t_list *current;
+	bool is_duplicate;
+
+	is_duplicate = false;
+	current = head;
+	while (current)
+	{
+		if (current->number == number)
+			is_duplicate = true;
+		current = current->next;
+	}
+	return (is_duplicate);
+}
 
 static void	parse_and_store(t_list **stack, char *input, bool *error)
 {
@@ -21,7 +37,7 @@ static void	parse_and_store(t_list **stack, char *input, bool *error)
 	if (!*error)
 	{
 		new_element = list_new_element(number);
-		*error = new_element == NULL;
+		*error = new_element == NULL || is_duplicate(*stack, new_element->number);
 		if (!*error)
 			list_add_back(stack, new_element);
 	}
