@@ -50,7 +50,7 @@ t_list	*extract_input(int input_count, char **input, int *stack_size)
 	char	**splitted_input;
 	bool	error;
 	int		i;
-	int 	j;
+	int		j;
 
 	stack = NULL;
 	error = false;
