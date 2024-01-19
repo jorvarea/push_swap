@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:50:43 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 16:13:11 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:55:05 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ bool				ft_isdigit(int c);
 int					ft_atoi(const char *str, bool *read_error);
 int					ft_strcmp(const char *s1, const char *s2);
 void				ft_putstr_fd(char *str, int fd);
+int					ft_count_words(char const *str, char delimiter);
+char				**ft_split(char const *str, char delimiter);
 
 void				clear_list(t_list **head);
 void				list_add_back(t_list **head, t_list *new_element);

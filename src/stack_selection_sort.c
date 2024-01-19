@@ -73,12 +73,12 @@ void	stack_selection_sort(t_list **a, t_list **b, int stack_len)
 	{
 		find_min(*a, &min_pos);
 		bring_min_top(a, stack_len, min_pos);
-        if (!is_stack_sorted(*a))
-        {
-		    push_top_stack(b, a);
-		    ft_printf("pb\n");
-		    stack_len--;
-        }
+		if (!is_stack_sorted(*a))
+		{
+			push_top_stack(b, a);
+			ft_printf("pb\n");
+			stack_len--;
+		}
 	}
 	push_sorted_stack_back(a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:36:06 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/19 15:32:07 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/19 19:01:10 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "get_next_line.h"
 #include "libft.h"
 #include "push_swap_utils.h"
+
+static void	clear_lists(t_list **a, t_list **b)
+{
+	clear_list(a);
+	clear_list(b);
+}
 
 static void	handle_output(bool a_is_null, bool b_is_null,
 		bool instruction_error, bool is_sorted)
@@ -32,7 +38,7 @@ int	main(int argc, char **argv)
 	t_list	*b;
 	char	*line;
 	bool	instruction_error;
-	bool 	keep_going;
+	bool	keep_going;
 
 	initialize_stacks(argc, argv, &a, &b);
 	instruction_error = false;
@@ -51,7 +57,6 @@ int	main(int argc, char **argv)
 		}
 	}
 	handle_output(a == NULL, b == NULL, instruction_error, is_stack_sorted(a));
-	clear_list(&a);
-	clear_list(&b);
+	clear_lists(&a, &b);
 	return (0);
 }

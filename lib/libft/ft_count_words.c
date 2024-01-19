@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_bubble_sort.c                                :+:      :+:    :+:   */
+/*   ft_count_words.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 00:02:22 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/19 00:25:58 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/19 18:47:18 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/19 18:52:25 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	stack_bubble_sort(t_list **a)
+int	ft_count_words(char const *str, char delimiter)
 {
-	while (!is_stack_sorted(*a))
+	int	word_count;
+
+	word_count = 0;
+	while (*str)
 	{
-		if ((*a)->number > (*a)->next->number && !is_stack_sorted((*a)->next))
+		if (*str != delimiter)
 		{
-			swap_top_stack(a);
-			ft_printf("sa\n");
+			word_count++;
+			while (*str && *str != delimiter)
+				str++;
 		}
-		if (!is_stack_sorted(*a))
-		{
-			rotate_stack_up(a);
-			ft_printf("ra\n");
-		}
+		else
+			str++;
 	}
+	return (word_count);
 }

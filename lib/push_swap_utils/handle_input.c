@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-bool is_duplicate(t_list *head, int number)
+bool	is_duplicate(t_list *head, int number)
 {
-	t_list *current;
-	bool is_duplicate;
+	t_list	*current;
+	bool	is_duplicate;
 
 	is_duplicate = false;
 	current = head;
@@ -37,7 +37,8 @@ static void	parse_and_store(t_list **stack, char *input, bool *error)
 	if (!*error)
 	{
 		new_element = list_new_element(number);
-		*error = new_element == NULL || is_duplicate(*stack, new_element->number);
+		*error = new_element == NULL || is_duplicate(*stack,
+				new_element->number);
 		if (!*error)
 			list_add_back(stack, new_element);
 	}
