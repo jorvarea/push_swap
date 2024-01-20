@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/19 20:30:40 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/20 11:56:55 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_list	*b;
 	int		stack_size;
 
-	initialize_stacks(argc, argv, &a, &b, &stack_size);
+	stack_size = initialize_stacks(argc, argv, &a, &b);
 	if (a != NULL)
 		stack_selection_sort(&a, &b, stack_size);
 	else

@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/19 21:54:10 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/20 11:56:39 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 # include "ft_printf.h"
 # include "libft.h"
 
-t_list	*extract_input(int input_count, char **input, int *stack_size);
-void	initialize_stacks(int argc, char **argv, t_list **a, t_list **b,
-			int *stack_size);
+int		initialize_stacks(int argc, char **argv, t_list **a, t_list **b);
 void	print_stacks(t_list *a, t_list *b);
 void	process_instruction(char *line, t_list **a, t_list **b, bool *error);
 bool	is_stack_sorted(t_list *head);
