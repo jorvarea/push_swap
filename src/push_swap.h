@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:19:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/19 00:09:44 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/20 22:51:44 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,5 @@
 # include "push_swap_utils.h"
 
 void	stack_selection_sort(t_list **a, t_list **b, int stack_len);
-void	stack_bubble_sort(t_list **a);
 
 #endif
