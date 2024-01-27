@@ -6,41 +6,58 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/23 19:47:15 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/28 00:47:40 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void circular_next_element(t_list *head, t_list **current)
+int	find_lis_ending_at_index(int *array, int *lis_ending_at, int size,
+		int index)
 {
-    if ((*current)->next != NULL)
-        *current = (*current)->next;
-    else
-        *current = head;
+	int	lis_ending_at_index;
+	int	i;
+
+	lis_ending_at_index = 1;
+	i = index;
+	while (i >= 0)
+	{
+		if (array[i] < array[index] && lis_ending_at[i]
+			+ 1 > lis_ending_at_index)
+			lis_ending_at_index = lis_ending_at[i] + 1;
+		i--;
+	}
+	return (lis_ending_at_index);
 }
 
-t_list *longest_increasing_subsequence(t_list *head)
+int	longest_increasing_subsequence(t_list *head)
 {
-    t_list *subsequence;
-    t_list *subsequence_current;
-    t_list *current_i;
-    t_list *current_j;
-    bool error;
-    
-    error = false;
-    current_i = head;
-    while (current_i != NULL && !error)
-    {
-        current_j = current_i->next;
-        subsequence = list_new_element(current_j->number);
-        subsequence_current = subsequence;
-        error = subsequence == NULL;
-        while(current_j != current_i && !error)
-        {
-            if (current_j->number > subsequence)
-            circular_next_element(head, &current_j);
-        }
-        current_i = current_i->next;
-    }
+	int	*array;
+	int	*lis_ending_at;
+	int	lis;
+	int	size;
+	int	i;
+
+	list2array(head, &array, &size);
+	if (array == NULL)
+		return (-1);
+	lis_ending_at = malloc(size * sizeof(int));
+	if (lis_ending_at == NULL)
+	{
+		free(array);
+		return (-1);
+	}
+	lis = 1;
+	i = 0;
+	while (i < size)
+	{
+		lis_ending_at[i] = find_lis_ending_at_index(array, lis_ending_at, size,
+				i);
+		if (lis_ending_at[i] > lis)
+			lis = lis_ending_at[i];
+		i++;
+	}
+	free(array);
+	free(lis_ending_at);
+	return (lis);
 }

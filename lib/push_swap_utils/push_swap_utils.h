@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/20 11:56:39 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/27 23:40:21 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		initialize_stacks(int argc, char **argv, t_list **a, t_list **b);
 void	print_stacks(t_list *a, t_list *b);
 void	process_instruction(char *line, t_list **a, t_list **b, bool *error);
 bool	is_stack_sorted(t_list *head);
+void	list2array(t_list *head, int **array, int *size);
 
 void	swap_top_stack(t_list **head);
 void	swap_top_stack_both(t_list **a, t_list **b);
