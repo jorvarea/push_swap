@@ -6,14 +6,13 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/28 00:47:40 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/28 00:55:37 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_lis_ending_at_index(int *array, int *lis_ending_at, int size,
-		int index)
+static int	find_lis_ending_at_index(int *array, int *lis_ending_at, int index)
 {
 	int	lis_ending_at_index;
 	int	i;
@@ -51,8 +50,7 @@ int	longest_increasing_subsequence(t_list *head)
 	i = 0;
 	while (i < size)
 	{
-		lis_ending_at[i] = find_lis_ending_at_index(array, lis_ending_at, size,
-				i);
+		lis_ending_at[i] = find_lis_ending_at_index(array, lis_ending_at, i);
 		if (lis_ending_at[i] > lis)
 			lis = lis_ending_at[i];
 		i++;

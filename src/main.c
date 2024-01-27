@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/20 12:58:03 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/28 00:54:32 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 
 	stack_size = initialize_stacks(argc, argv, &a, &b);
 	if (a != NULL)
-		stack_selection_sort(&a, &b, stack_size);
+		ft_printf("LIS: %d\n", longest_increasing_subsequence(a));
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	clear_list(&a);
