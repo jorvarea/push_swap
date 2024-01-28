@@ -6,11 +6,21 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/28 17:52:56 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/28 18:12:49 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void free_arrays(int *array1, int *array2, int *array3)
+{
+	if (array1)
+		free(array1);
+	if (array2)
+		free(array2);
+	if (array3)
+		free(array3);
+}
 
 static int	find_lis_ending_at_index(int *array, int *lis_ending_at, int index)
 {
@@ -50,20 +60,19 @@ int	longest_increasing_subsequence_algorithm(t_list *head)
 {
 	int	*array;
 	int	*lis_ending_at;
+	int *previous_in_sequence;
 	int lis;
 	int	size;
 
 	list2circular_array(head, &array, &size);
-	if (array == NULL)
-		return (-1);
 	lis_ending_at = malloc(size * sizeof(int));
-	if (lis_ending_at == NULL)
+	previous_in_sequence = malloc(size * sizeof(int));
+	if (!array || !lis_ending_at || !previous_in_sequence)
 	{
-		free(array);
+		free_arrays(array, lis_ending_at, previous_in_sequence);
 		return (-1);
 	}
 	lis = lis_circular_array(array, lis_ending_at, size);
-	free(array);
-	free(lis_ending_at);
+	free_arrays(array, lis_ending_at, previous_in_sequence);
 	return (lis);
 }
