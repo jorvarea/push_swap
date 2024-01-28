@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/28 17:37:26 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:52:56 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,29 @@ static int	find_lis_ending_at_index(int *array, int *lis_ending_at, int index)
 	return (lis_ending_at_index);
 }
 
-int	longest_increasing_subsequence(t_list *head)
+static int lis_circular_array(int *array, int *lis_ending_at, int size)
+{
+	int i;
+	int lis;
+	
+	lis = 1;
+	i = 0;
+	while (i < size)
+	{
+		lis_ending_at[i] = find_lis_ending_at_index(array, lis_ending_at, i);
+		if (lis_ending_at[i] > lis)
+			lis = lis_ending_at[i];
+		i++;
+	}
+	return (lis);
+}
+
+int	longest_increasing_subsequence_algorithm(t_list *head)
 {
 	int	*array;
 	int	*lis_ending_at;
-	int	lis;
+	int lis;
 	int	size;
-	int	i;
 
 	list2circular_array(head, &array, &size);
 	if (array == NULL)
@@ -46,15 +62,7 @@ int	longest_increasing_subsequence(t_list *head)
 		free(array);
 		return (-1);
 	}
-	lis = 1;
-	i = 0;
-	while (i < size)
-	{
-		lis_ending_at[i] = find_lis_ending_at_index(array, lis_ending_at, i);
-		if (lis_ending_at[i] > lis)
-			lis = lis_ending_at[i];
-		i++;
-	}
+	lis = lis_circular_array(array, lis_ending_at, size);
 	free(array);
 	free(lis_ending_at);
 	return (lis);
