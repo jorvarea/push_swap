@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/28 17:28:22 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:37:26 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	longest_increasing_subsequence(t_list *head)
 	int	size;
 	int	i;
 
-	list2array(head, &array, &size);
+	list2circular_array(head, &array, &size);
 	if (array == NULL)
 		return (-1);
 	lis_ending_at = malloc(size * sizeof(int));
