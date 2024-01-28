@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:50:43 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/19 18:55:05 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/28 17:23:01 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 
 bool				ft_isspace(char c);
 bool				ft_isdigit(int c);
+int					ft_max(int a, int b);
 int					ft_atoi(const char *str, bool *read_error);
 int					ft_strcmp(const char *s1, const char *s2);
 void				ft_putstr_fd(char *str, int fd);
