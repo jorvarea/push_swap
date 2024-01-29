@@ -18,7 +18,7 @@ bool	array_contains(int *array, int size, int element)
 	bool	found;
 
 	found = false;
-    i = 0;
+	i = 0;
 	while (i < size)
 	{
 		if (array[i] == element)

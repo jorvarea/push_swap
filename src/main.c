@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	int stack_len;
+	int		stack_len;
 
 	stack_len = initialize_stacks(argc, argv, &a, &b);
 	if (a != NULL)
