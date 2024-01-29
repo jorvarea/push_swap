@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:19:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 14:38:23 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 22:16:13 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,14 @@ typedef struct s_lis_arrays
 	int	size;
 }		t_lis_arrays;
 
+typedef struct s_moves
+{
+	int *a;
+	int *b;
+}		t_moves;
+
 void	stack_selection_sort(t_list **a, t_list **b, int stack_len);
+void	insert_unsorted(t_list **a, t_list **b);
 void    lis_based_sorting(t_list **a, t_list **b, int stack_len);
 int		*longest_increasing_subsequence(int *numbers, int size);
 
