@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/28 17:34:28 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:57:04 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "ft_printf.h"
 # include "libft.h"
 
+void    check_empty_arguments(int argc);
 int		initialize_stacks(int argc, char **argv, t_list **a, t_list **b);
 void	print_stacks(t_list *a, t_list *b);
 void	process_instruction(char *line, t_list **a, t_list **b, bool *error);

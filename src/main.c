@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/28 17:53:48 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:54:36 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	int		stack_size;
-
-	stack_size = initialize_stacks(argc, argv, &a, &b);
+	
+	check_empty_arguments(argc);
+	initialize_stacks(argc, argv, &a, &b);
 	if (a != NULL)
-		ft_printf("LIS: %d\n", longest_increasing_subsequence_algorithm(a));
+		ft_printf("LIS: %d\n", longest_increasing_subsequence(a));
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	clear_list(&a);

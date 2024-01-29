@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/28 18:12:49 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:26:09 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int lis_circular_array(int *array, int *lis_ending_at, int size)
 	return (lis);
 }
 
-int	longest_increasing_subsequence_algorithm(t_list *head)
+int	longest_increasing_subsequence(t_list *head)
 {
 	int	*array;
 	int	*lis_ending_at;

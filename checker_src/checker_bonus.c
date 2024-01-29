@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 13:36:06 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/20 22:34:17 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:54:08 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	main(int argc, char **argv)
 	bool	instruction_error;
 	bool	keep_going;
 
+	check_empty_arguments(argc);
 	initialize_stacks(argc, argv, &a, &b);
 	instruction_error = false;
 	if (a != NULL)
