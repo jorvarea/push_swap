@@ -6,23 +6,44 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 12:06:02 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:22:04 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_arrays(int *array1, int *array2, int *array3)
+static void	free_arrays(t_lis_arrays *arrays, bool free_lis_array)
 {
-	if (array1)
-		free(array1);
-	if (array2)
-		free(array2);
-	if (array3)
-		free(array3);
+	if (arrays->numbers)
+		free(arrays->numbers);
+	if (arrays->lis_ending_at)
+		free(arrays->lis_ending_at);
+	if (arrays->previous_in_sequence)
+		free(arrays->previous_in_sequence);
+	if (arrays->lis && free_lis_array)
+    {
+		free(arrays->lis);
+        arrays->lis =  NULL;
+    }
 }
 
-static int	find_lis_ending_at_index(int *array, int *lis_ending_at, int index)
+static void retrieve_subsequence(t_lis_arrays *arrays, int lis_ending_index)
+{
+    int current_index;
+    int i;
+    
+    arrays->lis[0] = arrays->numbers[lis_ending_index];
+    current_index = lis_ending_index;
+    i = 1;
+    while (arrays->previous_in_sequence[current_index] != -1)
+    {
+        arrays->lis[i] = arrays->numbers[arrays->previous_in_sequence[current_index]];
+        current_index = arrays->previous_in_sequence[current_index];
+        i++;
+    }
+}
+
+static int	find_lis_ending_at_index(t_lis_arrays *arrays, int index)
 {
 	int	lis_ending_at_index;
 	int	i;
@@ -31,48 +52,60 @@ static int	find_lis_ending_at_index(int *array, int *lis_ending_at, int index)
 	i = index;
 	while (i >= 0)
 	{
-		if (array[i] < array[index] && lis_ending_at[i]
-			+ 1 > lis_ending_at_index)
-			lis_ending_at_index = lis_ending_at[i] + 1;
+		if (arrays->numbers[i] < arrays->numbers[index]
+			&& arrays->lis_ending_at[i] + 1 > lis_ending_at_index)
+		{
+			lis_ending_at_index = arrays->lis_ending_at[i] + 1;
+			arrays->previous_in_sequence[index] = i;
+		}
 		i--;
 	}
 	return (lis_ending_at_index);
 }
 
-static int	lis_circular_array(int *array, int *lis_ending_at, int size)
+static void find_lis_circular_array(t_lis_arrays *arrays)
 {
 	int	i;
 	int	lis;
+	int	lis_ending_index;
 
+    i = 0;
+    while (i < arrays->size)
+    {
+        arrays->previous_in_sequence[i] = -1;
+        i++;
+    }
 	lis = 1;
+	lis_ending_index = 0;
 	i = 0;
-	while (i < size)
+	while (i < arrays->size)
 	{
-		lis_ending_at[i] = find_lis_ending_at_index(array, lis_ending_at, i);
-		if (lis_ending_at[i] > lis)
-			lis = lis_ending_at[i];
+		arrays->lis_ending_at[i] = find_lis_ending_at_index(arrays, i);
+		if (arrays->lis_ending_at[i] > lis)
+		{
+			lis = arrays->lis_ending_at[i];
+			lis_ending_index = i;
+		}
 		i++;
 	}
-	return (lis);
+    retrieve_subsequence(arrays, lis_ending_index);
 }
 
-int	longest_increasing_subsequence(t_list *head)
+int	*longest_increasing_subsequence(t_list *head)
 {
-	int	*array;
-	int	*lis_ending_at;
-	int	*previous_in_sequence;
-	int	lis;
-	int	size;
+	t_lis_arrays	arrays;
 
-	list2circular_array(head, &array, &size);
-	lis_ending_at = malloc(size * sizeof(int));
-	previous_in_sequence = malloc(size * sizeof(int));
-	if (!array || !lis_ending_at || !previous_in_sequence)
+	list2circular_array(head, &arrays.numbers, &arrays.size);
+	arrays.lis_ending_at = malloc(arrays.size * sizeof(int));
+	arrays.previous_in_sequence = malloc(arrays.size * sizeof(int));
+	arrays.lis = malloc(arrays.size * sizeof(int));
+	if (!arrays.numbers || !arrays.lis_ending_at || !arrays.previous_in_sequence
+		|| !arrays.lis)
 	{
-		free_arrays(array, lis_ending_at, previous_in_sequence);
-		return (-1);
+		free_arrays(&arrays, true);
+		return (NULL);
 	}
-	lis = lis_circular_array(array, lis_ending_at, size);
-	free_arrays(array, lis_ending_at, previous_in_sequence);
-	return (lis);
+	find_lis_circular_array(&arrays);
+	free_arrays(&arrays, false);
+	return (arrays.lis);
 }
