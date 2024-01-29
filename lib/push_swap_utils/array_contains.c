@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_element_in_array.c                              :+:      :+:    :+:   */
+/*   array_contains.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:03:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 14:06:38 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:14:42 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ bool	array_contains(int *array, int size, int element)
 	bool	found;
 
 	found = false;
+    i = 0;
 	while (i < size)
 	{
 		if (array[i] == element)
