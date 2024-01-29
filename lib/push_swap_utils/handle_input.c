@@ -6,11 +6,12 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 17:13:03 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 11:51:16 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:07:00 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap_utils.h"
 
 static bool	is_duplicate(t_list *head, int number)
 {
@@ -96,6 +97,7 @@ int	initialize_stacks(int argc, char **argv, t_list **a, t_list **b)
 {
 	int	stack_size;
 
+	check_empty_arguments(argc);
 	*a = extract_input(argc - 1, &argv[1], &stack_size);
 	*b = NULL;
 	return (stack_size);

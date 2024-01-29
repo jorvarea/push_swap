@@ -12,8 +12,8 @@
 
 #include "push_swap_utils.h"
 
-void check_empty_arguments(int argc)
+void	check_empty_arguments(int argc)
 {
-    if (argc < 2)
-        exit(1);
+	if (argc < 2)
+		exit(1);
 }

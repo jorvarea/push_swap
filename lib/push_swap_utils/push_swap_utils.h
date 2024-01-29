@@ -16,7 +16,7 @@
 # include "ft_printf.h"
 # include "libft.h"
 
-void    check_empty_arguments(int argc);
+void	check_empty_arguments(int argc);
 int		initialize_stacks(int argc, char **argv, t_list **a, t_list **b);
 void	print_stacks(t_list *a, t_list *b);
 void	process_instruction(char *line, t_list **a, t_list **b, bool *error);

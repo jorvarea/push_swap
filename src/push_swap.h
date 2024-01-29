@@ -17,6 +17,6 @@
 # include "push_swap_utils.h"
 
 void	stack_selection_sort(t_list **a, t_list **b, int stack_len);
-int	    longest_increasing_subsequence(t_list *head);
+int		longest_increasing_subsequence(t_list *head);
 
 #endif

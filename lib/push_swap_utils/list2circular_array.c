@@ -29,7 +29,7 @@ void	list2circular_array(t_list *head, int **array, int *size)
 			current = current->next;
 			i++;
 		}
-        current = head;
+		current = head;
 		while (i < *size)
 		{
 			(*array)[i] = current->number;
