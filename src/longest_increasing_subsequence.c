@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 14:32:40 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:20:58 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	find_lis_ending_at_index(t_lis_arrays *arrays, int index)
 	return (lis_ending_at_index);
 }
 
-static void	find_lis_circular_array(t_lis_arrays *arrays)
+static void	find_lis(t_lis_arrays *arrays)
 {
 	int	i;
 	int	lis;
@@ -106,7 +106,7 @@ int	*longest_increasing_subsequence(int *numbers, int size)
 		free_arrays(&arrays, true);
 		return (NULL);
 	}
-	find_lis_circular_array(&arrays);
+	find_lis(&arrays);
 	free_arrays(&arrays, false);
 	return (arrays.lis);
 }
