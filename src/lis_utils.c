@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:47:16 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 23:56:30 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:57:34 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ static int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
 static void	execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
 		int optimal_index)
 {
-	
+	// keep working here
 }
 
 void	insert_unsorted(t_list **a, t_list **b)
