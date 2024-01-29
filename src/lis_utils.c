@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 21:47:16 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 23:47:41 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/29 23:56:30 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ static void	calculate_moves_b(t_list *b, int *moves_b)
 	while (i < size)
 	{
 		if (i <= size / 2)
-			(*moves_b)[i] = i;
+			moves_b[i] = i;
 		else
-			(*moves_b)[i] = -(size - i);
+			moves_b[i] = -(size - i);
 		i++;
 	}
 }
@@ -58,9 +58,9 @@ static void	calculate_moves_a(t_list *a, t_list *b, int *moves_a)
 			j++;
 		}
 		if (j <= size_a / 2)
-			(*moves_a)[i] = j;
+			moves_a[i] = j;
 		else
-			(*moves_a)[i] = -(size_a - j);
+			moves_a[i] = -(size_a - j);
 		current_b = current_b->next;
 		i++;
 	}
@@ -81,8 +81,7 @@ static int	total_moves(int *moves_a, int *moves_b, int index)
 	return (min);
 }
 
-static int	optimal_move_index(t_list **a, t_list **b, int *moves_a,
-		int *moves_b)
+static int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
 {
 	int	min_moves;
 	int	min_tmp;
@@ -92,7 +91,7 @@ static int	optimal_move_index(t_list **a, t_list **b, int *moves_a,
 
 	min_moves = 0;
 	min_moves_index = -1;
-	size = list_size(b);
+	size = list_size(*b);
 	i = 0;
 	while (i < size)
 	{
@@ -115,22 +114,22 @@ static void	execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
 
 void	insert_unsorted(t_list **a, t_list **b)
 {
-	t_moves_arrays	moves;
-	int				size_stack_b;
-	int				optimal_index;
+	t_moves		moves;
+	int			size_stack_b;
+	int			optimal_index;
 
 	size_stack_b = list_size(*b);
 	moves.a = malloc(size_stack_b * sizeof(int));
 	moves.b = malloc(size_stack_b * sizeof(int));
-	if (moves->a && moves->b)
+	if (moves.a && moves.b)
 	{
 		while (*b)
 		{
-			calculate_moves_b(*b, moves->b);
-			calculate_moves_a(*a, *b, moves->a);
-			optimal_index = optimal_move_index(a, b, moves->a, moves->b);
+			calculate_moves_b(*b, moves.b);
+			calculate_moves_a(*a, *b, moves.a);
+			optimal_index = optimal_move_index(b, moves.a, moves.b);
 			execute_optimal_move(a, b, &moves, optimal_index);
 		}
 	}
-	free_moves(moves);
+	free_moves(&moves);
 }
