@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 23:51:22 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:36:39 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	*longest_increasing_subsequence(int *numbers, int size)
 		return (NULL);
 	}
 	find_lis(&arrays);
+    free(numbers);
 	free_arrays(&arrays, false);
 	return (arrays.lis);
 }
