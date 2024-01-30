@@ -6,95 +6,11 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:23:20 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 20:15:37 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:47:35 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	push_unsorted(t_list **a, t_list **b, int *lis, int stack_len)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack_len)
-	{
-		if (!array_contains(lis, stack_len * 2, (*a)->number))
-		{
-			push_top_stack(b, a);
-			ft_printf("pb\n");
-		}
-		else
-		{
-			rotate_stack_up(a);
-			ft_printf("ra\n");
-		}
-		i++;
-	}
-}
-
-static int	total_moves(int *moves_a, int *moves_b, int index)
-{
-	int	min;
-
-	if (moves_a[index] >= 0 && moves_b[index] >= 0)
-		min = ft_max(moves_a[index], moves_b[index]);
-	else if (moves_a[index] >= 0 && moves_b[index] < 0)
-		min = moves_a[index] + ft_abs(moves_b[index]);
-	else if (moves_a[index] < 0 && moves_b[index] >= 0)
-		min = ft_abs(moves_a[index]) + moves_b[index];
-	else
-		min = ft_min(moves_a[index], moves_b[index]);
-	return (min);
-}
-
-int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
-{
-	int	min_moves;
-	int	min_tmp;
-	int	min_moves_index;
-	int	size;
-	int	i;
-
-	min_moves = 0;
-	min_moves_index = -1;
-	size = list_size(*b);
-	i = 0;
-	while (i < size)
-	{
-		min_tmp = total_moves(moves_a, moves_b, i);
-		if (min_tmp < min_moves || min_moves == 0)
-		{
-			min_moves = min_tmp;
-			min_moves_index = i;
-		}
-		i++;
-	}
-	return (min_moves_index);
-}
-
-void	insert_unsorted(t_list **a, t_list **b)
-{
-	t_moves	moves;
-	int		size_stack_b;
-	int		optimal_index;
-
-	size_stack_b = list_size(*b);
-	moves.a = malloc(size_stack_b * sizeof(int));
-	moves.b = malloc(size_stack_b * sizeof(int));
-	if (moves.a && moves.b)
-	{
-		while (*b)
-		{
-			calculate_moves_b(*b, moves.b);
-			calculate_moves_a(*a, *b, moves.a);
-			optimal_index = optimal_move_index(b, moves.a, moves.b);
-			execute_optimal_move(a, b, &moves, optimal_index);
-			print_stacks(*a, *b);
-		}
-	}
-	free_moves(&moves);
-}
 
 void	lis_based_sorting(t_list **a, t_list **b, int stack_len)
 {
@@ -109,4 +25,6 @@ void	lis_based_sorting(t_list **a, t_list **b, int stack_len)
 	print_stacks(*a, *b);
 	free(lis);
 	insert_unsorted(a, b);
+	put_min_first(a, size_numbers);
+	print_stacks(*a, *b);
 }
