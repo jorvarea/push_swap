@@ -6,11 +6,32 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:23:20 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 13:48:38 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:53:56 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	push_unsorted(t_list **a, t_list **b, int *lis, int stack_len)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack_len)
+	{
+		if (!array_contains(lis, stack_len * 2, (*a)->number))
+		{
+			push_top_stack(b, a);
+			ft_printf("pb\n");
+		}
+		else
+		{
+			rotate_stack_up(a);
+			ft_printf("ra\n");
+		}
+		i++;
+	}
+}
 
 int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
 {
@@ -40,27 +61,7 @@ int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
 void	execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
 		int optimal_index)
 {
-}
-
-void	push_unsorted(t_list **a, t_list **b, int *lis, int stack_len)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack_len)
-	{
-		if (!array_contains(lis, stack_len * 2, (*a)->number))
-		{
-			push_top_stack(b, a);
-			ft_printf("pb\n");
-		}
-		else
-		{
-			rotate_stack_up(a);
-			ft_printf("ra\n");
-		}
-		i++;
-	}
+    
 }
 
 void	insert_unsorted(t_list **a, t_list **b)
