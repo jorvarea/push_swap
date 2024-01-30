@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:03:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 14:41:06 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:50:30 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,10 +119,10 @@ static void	move_minus_minus(t_list **a, t_list **b, t_moves *moves,
 void	execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
 		int optimal_index)
 {
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < list_size(*b); i++)
         ft_printf("%d, ", moves->a[i]);
     ft_printf("\n");
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < list_size(*b); i++)
         ft_printf("%d, ", moves->b[i]);
     ft_printf("\n");
 	if (moves->a[optimal_index] >= 0 && moves->b[optimal_index] >= 0)
