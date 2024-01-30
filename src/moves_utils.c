@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:41:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 14:57:52 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:12:46 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,46 +37,67 @@ void	calculate_moves_b(t_list *b, int *moves_b)
 	}
 }
 
+static void	find_min(t_list *a, t_element *min)
+{
+	t_list	*current;
+	int		i;
+
+	min->node = a;
+	min->index = 0;
+	i = 0;
+	current = a;
+	while (current)
+	{
+		if (current->number < min->node->number)
+		{
+			min->node = current;
+			min->index = i;
+		}
+		current = current->next;
+		i++;
+	}
+}
+
+static int	find_insertion_position(t_list *a, t_list *node, t_element *min)
+{
+	t_list	*current;
+	int		i;
+
+	i = min->index;
+	current = min->node;
+	while (current->number < node->number)
+	{
+		current = current->next;
+		i++;
+		if (current == NULL)
+		{
+			current = a;
+			i = 0;
+		}
+	}
+	return (i);
+}
+
 void	calculate_moves_a(t_list *a, t_list *b, int *moves_a)
 {
-	t_list	*current_a;
-	t_list	*current_b;
-	int		size_a;
-	int		i;
-	int		j;
+	t_list		*current_b;
+	t_element	min;
+	int			size_a;
+	int			insertion_index;
+	int			i;
 
 	size_a = list_size(a);
 	i = 0;
 	current_b = b;
 	while (current_b)
 	{
-		j = 0;
-		current_a = a;
-		while (current_a && current_a->number < current_b->number)
-		{
-			current_a = current_a->next;
-			j++;
-		}
-		if (j <= size_a / 2)
-			moves_a[i] = j;
+		find_min(a, &min);
+		insertion_index = find_insertion_position(a, current_b, &min);
+		if (insertion_index <= size_a / 2)
+			moves_a[i] = insertion_index;
 		else
-			moves_a[i] = -(size_a - j);
+			moves_a[i] = -(size_a - insertion_index);
 		current_b = current_b->next;
 		i++;
 	}
-}
-
-int	total_moves(int *moves_a, int *moves_b, int index)
-{
-	int	min;
-
-	if (moves_a[index] >= 0 && moves_b[index] >= 0)
-		min = ft_max(moves_a[index], moves_b[index]);
-	else if (moves_a[index] >= 0 && moves_b[index] < 0)
-		min = moves_a[index] + ft_abs(moves_b[index]);
-	else if (moves_a[index] < 0 && moves_b[index] >= 0)
-		min = ft_abs(moves_a[index]) + moves_b[index];
-	else
-		min = ft_min(moves_a[index], moves_b[index]);
-	return (min);
 }

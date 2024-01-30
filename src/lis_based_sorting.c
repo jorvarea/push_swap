@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:23:20 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 14:41:43 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:15:37 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,21 @@ void	push_unsorted(t_list **a, t_list **b, int *lis, int stack_len)
 		}
 		i++;
 	}
+}
+
+static int	total_moves(int *moves_a, int *moves_b, int index)
+{
+	int	min;
+
+	if (moves_a[index] >= 0 && moves_b[index] >= 0)
+		min = ft_max(moves_a[index], moves_b[index]);
+	else if (moves_a[index] >= 0 && moves_b[index] < 0)
+		min = moves_a[index] + ft_abs(moves_b[index]);
+	else if (moves_a[index] < 0 && moves_b[index] >= 0)
+		min = ft_abs(moves_a[index]) + moves_b[index];
+	else
+		min = ft_min(moves_a[index], moves_b[index]);
+	return (min);
 }
 
 int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
@@ -75,6 +90,7 @@ void	insert_unsorted(t_list **a, t_list **b)
 			calculate_moves_a(*a, *b, moves.a);
 			optimal_index = optimal_move_index(b, moves.a, moves.b);
 			execute_optimal_move(a, b, &moves, optimal_index);
+			print_stacks(*a, *b);
 		}
 	}
 	free_moves(&moves);
@@ -86,11 +102,11 @@ void	lis_based_sorting(t_list **a, t_list **b, int stack_len)
 	int	size_numbers;
 	int	*lis;
 
-    print_stacks(*a, *b);
+	print_stacks(*a, *b);
 	list2array(*a, &numbers, &size_numbers);
 	lis = longest_increasing_subsequence(numbers, size_numbers);
 	push_unsorted(a, b, lis, stack_len);
-    print_stacks(*a, *b);
+	print_stacks(*a, *b);
 	free(lis);
 	insert_unsorted(a, b);
 }
