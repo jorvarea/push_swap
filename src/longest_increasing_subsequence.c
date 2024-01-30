@@ -107,7 +107,7 @@ int	*longest_increasing_subsequence(int *numbers, int size)
 		return (NULL);
 	}
 	find_lis(&arrays);
-    free(numbers);
+	free(numbers);
 	free_arrays(&arrays, false);
 	return (arrays.lis);
 }
