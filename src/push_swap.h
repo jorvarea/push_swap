@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:19:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 14:04:32 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:31:36 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "ft_printf.h"
+# include "libft.h"
 # include "push_swap_utils.h"
 
 typedef struct s_lis_arrays
@@ -46,11 +47,11 @@ int		total_moves(int *moves_a, int *moves_b, int index);
 // execute_optimal_move
 void	execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
 			int optimal_index);
-			
+
 // lis_based_sorting
 int		optimal_move_index(t_list **b, int *moves_a, int *moves_b);
 void	push_unsorted(t_list **a, t_list **b, int *lis, int stack_len);
 void	insert_unsorted(t_list **a, t_list **b);
 void	lis_based_sorting(t_list **a, t_list **b, int stack_len);
-	
+
 #endif
