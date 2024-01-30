@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 15:41:27 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 03:18:54 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 20:55:56 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	print_stacks(t_list *a, t_list *b)
 	{
 		if (a != NULL)
 		{
-			ft_printf("%d ", a->number);
+			ft_printf("%d  ", a->number);
 			a = a->next;
 		}
 		else
-			ft_printf("  ");
+			ft_printf("    ");
 		if (b != NULL)
 		{
 			ft_printf("%d", b->number);
@@ -46,7 +46,7 @@ void	print_stacks(t_list *a, t_list *b)
 		}
 		ft_printf("\n");
 	}
-	ft_printf("- -\n");
-	ft_printf("a b\n");
+	ft_printf("--  --\n");
+	ft_printf("a   b\n");
 	print_dashed_line(DASH_LINE_LENGHT);
 }
