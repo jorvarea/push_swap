@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:03:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 20:15:10 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 22:30:05 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ static void	move_minus_minus(t_list **a, t_list **b, t_moves *moves,
 		ft_printf("rrr\n");
 		i++;
 	}
+	i = ft_min(moves->a[optimal_index], moves->b[optimal_index])
+		- ft_max(moves->a[optimal_index], moves->b[optimal_index]);
 	if (moves->a[optimal_index] < moves->b[optimal_index])
 	{
 		while (i++ < 0)
@@ -115,10 +117,16 @@ static void	move_minus_minus(t_list **a, t_list **b, t_moves *moves,
 		}
 	}
 }
-
+// try this 13 92 99 86 66 67 84 30 10 65 98 77 93 42 58 88 34 80 81 43 26 45 50 8 11 5 74 56 1 87 48 46 37 89 0 76 28 19 97
 void	execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
 		int optimal_index)
 {
+	for (int i = 0; i < list_size(*b); i++)
+		ft_printf("%d, ", moves->a[i]);
+	ft_printf("\n");
+	for (int i = 0; i < list_size(*b); i++)
+		ft_printf("%d, ", moves->b[i]);
+	ft_printf("\n");
 	if (moves->a[optimal_index] >= 0 && moves->b[optimal_index] >= 0)
 		move_plus_plus(a, b, moves, optimal_index);
 	else if (moves->a[optimal_index] >= 0 && moves->b[optimal_index] < 0)

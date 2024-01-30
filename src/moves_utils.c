@@ -62,7 +62,7 @@ static int	find_insertion_position(t_list *a, t_list *node, t_element *min)
 {
 	t_list	*current;
 	int		i;
-	bool 	keep_going;
+	bool	keep_going;
 
 	i = min->index;
 	current = min->node;
