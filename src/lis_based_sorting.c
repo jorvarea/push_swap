@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:23:20 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 13:53:56 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:04:47 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,6 @@ int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
 		i++;
 	}
 	return (min_moves_index);
-}
-
-void	execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
-		int optimal_index)
-{
-    
 }
 
 void	insert_unsorted(t_list **a, t_list **b)
