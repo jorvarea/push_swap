@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:41:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 20:27:59 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/30 21:07:26 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,12 @@ static int	find_insertion_position(t_list *a, t_list *node, t_element *min)
 {
 	t_list	*current;
 	int		i;
+	bool 	keep_going;
 
 	i = min->index;
 	current = min->node;
-	while (current->number < node->number)
+	keep_going = true;
+	while (current->number < node->number && keep_going)
 	{
 		current = current->next;
 		i++;
@@ -74,6 +76,8 @@ static int	find_insertion_position(t_list *a, t_list *node, t_element *min)
 			current = a;
 			i = 0;
 		}
+		if (current == min->node)
+			keep_going = false;
 	}
 	return (i);
 }
