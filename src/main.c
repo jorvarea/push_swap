@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 23:19:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 14:24:52 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 18:12:34 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int	main(int argc, char **argv)
 
 	stack_len = initialize_stacks(argc, argv, &a, &b);
 	if (a != NULL)
-		lis_based_sorting(&a, &b, stack_len);
+	{
+		if (!is_stack_sorted(a))
+			lis_based_sorting(&a, &b, stack_len);
+	}
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	clear_list(&a);
