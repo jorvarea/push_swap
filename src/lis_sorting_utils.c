@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:32:28 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/31 12:23:03 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:34:46 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void	put_min_first(t_list **a, int size_a)
 		while (i > 0)
 		{
 			rotate_stack_down(a);
-			ft_printf("ra\n");
+			ft_printf("rra\n");
 			i--;
 		}
 	}
