@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:03:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 14:14:42 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:59:39 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	array_contains(int *array, int size, int element)
 
 	found = false;
 	i = 0;
-	while (i < size)
+	while (i < size && !found)
 	{
 		if (array[i] == element)
 			found = true;
