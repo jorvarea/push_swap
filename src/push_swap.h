@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:19:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 20:48:09 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:09:12 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_element
 void		stack_selection_sort(t_list **a, t_list **b, int stack_len);
 
 // longest_increasing_subsequence
-int			*longest_increasing_subsequence(int *numbers, int size);
+int			*longest_increasing_subsequence(int *numbers, int size, int *lis_size);
 
 // moves_utils
 void		free_moves(t_moves *moves);
@@ -58,7 +58,7 @@ void		execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
 void		lis_based_sorting(t_list **a, t_list **b, int stack_len);
 
 // lis_sorting_utils
-void		push_unsorted(t_list **a, t_list **b, int *lis, int stack_len);
+void		push_unsorted(t_list **a, t_list **b, int *lis, int lis_size);
 int			optimal_move_index(t_list **b, int *moves_a, int *moves_b);
 void		insert_unsorted(t_list **a, t_list **b);
 void		put_min_first(t_list **a, int size_a);

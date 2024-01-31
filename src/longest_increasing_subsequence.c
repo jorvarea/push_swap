@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 14:35:03 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:12:25 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,9 @@ static int	find_lis_ending_at_index(t_lis_arrays *arrays, int index)
 	return (lis_ending_at_index);
 }
 
-static void	find_lis(t_lis_arrays *arrays)
+static void	find_lis(t_lis_arrays *arrays, int *lis_size)
 {
 	int	i;
-	int	lis;
 	int	lis_ending_index;
 
 	i = 0;
@@ -75,15 +74,15 @@ static void	find_lis(t_lis_arrays *arrays)
 		arrays->previous[i] = -1;
 		i++;
 	}
-	lis = 1;
+	*lis_size = 1;
 	lis_ending_index = 0;
 	i = 0;
 	while (i < arrays->size)
 	{
 		arrays->lis_ending_at[i] = find_lis_ending_at_index(arrays, i);
-		if (arrays->lis_ending_at[i] > lis)
+		if (arrays->lis_ending_at[i] > *lis_size)
 		{
-			lis = arrays->lis_ending_at[i];
+			*lis_size = arrays->lis_ending_at[i];
 			lis_ending_index = i;
 		}
 		i++;
@@ -91,7 +90,7 @@ static void	find_lis(t_lis_arrays *arrays)
 	retrieve_subsequence(arrays, lis_ending_index);
 }
 
-int	*longest_increasing_subsequence(int *numbers, int size)
+int	*longest_increasing_subsequence(int *numbers, int size, int *lis_size)
 {
 	t_lis_arrays	arrays;
 
@@ -106,7 +105,7 @@ int	*longest_increasing_subsequence(int *numbers, int size)
 		free_arrays(&arrays, true);
 		return (NULL);
 	}
-	find_lis(&arrays);
+	find_lis(&arrays, lis_size);
 	free_arrays(&arrays, false);
 	return (arrays.lis);
 }

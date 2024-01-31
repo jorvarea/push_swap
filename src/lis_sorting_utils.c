@@ -6,20 +6,22 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:32:28 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/31 11:38:18 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:23:03 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_unsorted(t_list **a, t_list **b, int *lis, int stack_len)
+void	push_unsorted(t_list **a, t_list **b, int *lis, int lis_size)
 {
+	int stack_len;
 	int	i;
 
+	stack_len = list_size(*a);
 	i = 0;
 	while (i < stack_len)
 	{
-		if (!array_contains(lis, stack_len, (*a)->number))
+		if (!array_contains(lis, lis_size, (*a)->number))
 		{
 			push_top_stack(b, a);
 			ft_printf("pb\n");
@@ -90,7 +92,6 @@ void	insert_unsorted(t_list **a, t_list **b)
 			calculate_moves_a(*a, *b, moves.a);
 			optimal_index = optimal_move_index(b, moves.a, moves.b);
 			execute_optimal_move(a, b, &moves, optimal_index);
-			print_stacks(*a, *b);
 		}
 	}
 	free_moves(&moves);
