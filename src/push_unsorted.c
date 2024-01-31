@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lis_based_sorting.c                                :+:      :+:    :+:   */
+/*   push_unsorted.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/29 14:23:20 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/31 12:32:41 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/31 22:59:04 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/01/31 22:59:27 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	lis_based_sorting(t_list **a, t_list **b, int stack_len)
+void	push_unsorted(t_list **a, t_list **b, int *lis, int lis_size)
 {
-	int	*numbers;
-	int	*lis;
-	int	lis_size;
+	int	stack_len;
+	int	i;
 
-	list2array(*a, &numbers, stack_len);
-	lis = longest_increasing_subsequence(numbers, stack_len, &lis_size);
-	push_unsorted(a, b, lis, lis_size);
-	free(lis);
-	insert_unsorted(a, b);
-	put_min_first(a, stack_len);
+	stack_len = list_size(*a);
+	i = 0;
+	while (i < stack_len)
+	{
+		if (!array_contains(lis, lis_size, (*a)->number))
+		{
+			push_top_stack(b, a);
+			ft_printf("pb\n");
+		}
+		else
+		{
+			rotate_stack_up(a);
+			ft_printf("ra\n");
+		}
+		i++;
+	}
 }
