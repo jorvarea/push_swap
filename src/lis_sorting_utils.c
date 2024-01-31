@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:32:28 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/31 12:34:46 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 12:47:20 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	push_unsorted(t_list **a, t_list **b, int *lis, int lis_size)
 		}
 		else
 		{
+			// I gotta find the fastest way of reaching that mf
 			rotate_stack_up(a);
 			ft_printf("ra\n");
 		}
