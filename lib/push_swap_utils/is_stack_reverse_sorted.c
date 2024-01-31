@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   is_stack_reverse_sorted.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 00:35:10 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/02/01 00:35:56 by jorvarea         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap_utils.h"
+
+bool	is_stack_reverse_sorted(t_list *head)
+{
+	t_list	*previous;
+	t_list	*current;
+	bool	is_reverse_sorted;
+
+	is_reverse_sorted = true;
+	previous = head;
+	if (head != NULL)
+		current = head->next;
+	while (previous && current && is_reverse_sorted)
+	{
+		if (previous->number < current->number)
+			is_reverse_sorted = false;
+		previous = current;
+		current = current->next;
+	}
+	return (is_reverse_sorted);
+}
