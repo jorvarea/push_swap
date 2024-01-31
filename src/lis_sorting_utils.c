@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 20:32:28 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 20:48:32 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:38:18 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	push_unsorted(t_list **a, t_list **b, int *lis, int stack_len)
 	i = 0;
 	while (i < stack_len)
 	{
-		if (!array_contains(lis, stack_len * 2, (*a)->number))
+		if (!array_contains(lis, stack_len, (*a)->number))
 		{
 			push_top_stack(b, a);
 			ft_printf("pb\n");
