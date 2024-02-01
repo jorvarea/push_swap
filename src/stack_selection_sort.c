@@ -6,13 +6,13 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:20:21 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/18 23:50:49 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 20:40:16 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	find_min(t_list *head, int *min_pos)
+static void	find_min_stack(t_list *head, int *min_pos)
 {
 	t_list	*current;
 	int		min;
@@ -71,7 +71,7 @@ void	stack_selection_sort(t_list **a, t_list **b, int stack_len)
 
 	while (stack_len > 1 && !is_stack_sorted(*a))
 	{
-		find_min(*a, &min_pos);
+		find_min_stack(*a, &min_pos);
 		bring_min_top(a, stack_len, min_pos);
 		if (!is_stack_sorted(*a))
 		{
