@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:19:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 20:17:34 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 20:19:28 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void		stack_selection_sort(t_list **a, t_list **b, int stack_len);
 // moves_utils
 void		free_moves(t_moves *moves);
 void		calculate_moves_b(t_list *b, int *moves_b);
-void		find_min(t_list *a, t_element *min);
 void		calculate_moves_a(t_list *a, t_list *b, int *moves_a);
 
 // execute_optimal_move_utils
