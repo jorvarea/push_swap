@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 01:54:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 00:36:26 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:01:38 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ bool	is_stack_reverse_sorted(t_list *head);
 bool	array_contains(int *array, int size, int element);
 void	list2array(t_list *head, int **array, int size);
 void	list2circular_array(t_list *head, int **array, int *size);
+void	bubble_sort(int *array, int size);
 
 void	swap_top_stack(t_list **head);
 void	swap_top_stack_both(t_list **a, t_list **b);
