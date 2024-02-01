@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 23:00:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 16:54:56 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:58:52 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ static int	total_moves(int *moves_a, int *moves_b, int index)
 
 	if (moves_a[index] >= 0 && moves_b[index] >= 0)
 		min = ft_max(moves_a[index], moves_b[index]);
-	else if (moves_a[index] >= 0 && moves_b[index] < 0)
+	else if (moves_a[index] >= 0 && moves_b[index] <= 0)
 		min = moves_a[index] + ft_abs(moves_b[index]);
-	else if (moves_a[index] < 0 && moves_b[index] >= 0)
+	else if (moves_a[index] <= 0 && moves_b[index] >= 0)
 		min = ft_abs(moves_a[index]) + moves_b[index];
 	else
 		min = ft_min(moves_a[index], moves_b[index]);
