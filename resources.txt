@@ -5,3 +5,7 @@ https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
 https://medium.com/@ayogun/push-swap-c1f5d2d41e97
 
 https://github.com/sisittu99/push_swap/blob/master/README_EN.md
+
+https://medium.com/@dansylvain84/my-implementation-of-the-42-push-swap-project-2706fd8c2e9f
+
+https://github.com/o-reo/push_swap_visualizer
