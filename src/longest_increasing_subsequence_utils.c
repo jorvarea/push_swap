@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 02:19:45 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 02:23:10 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 12:44:47 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,14 @@ static int	find_lis_ending_at_index(t_lis_arrays *arrays, int index)
 	return (lis_ending_at_index);
 }
 
-static void	initialize_previous(int *previous, int size)
-{
-	int	i;
-
-	i = 0;
-	while (i < size)
-	{
-		previous[i] = -1;
-		i++;
-	}
-}
-
 void	find_lis(t_lis_arrays *arrays, int *lis_size)
 {
 	int	i;
 	int	lis_ending_index;
 
-	initialize_previous(arrays->previous, arrays->size);
+	i = 0;
+	while (i < arrays->size)
+		arrays->previous[i++] = -1;
 	*lis_size = 1;
 	lis_ending_index = 0;
 	i = 0;
