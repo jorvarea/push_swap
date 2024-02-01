@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 01:59:34 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 02:14:31 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,12 @@ static void	find_lis(t_lis_arrays *arrays, int *lis_size)
 	retrieve_subsequence(arrays, lis_ending_index);
 }
 
-int	*longest_increasing_subsequence(int *numbers, int size, int *lis_size)
+int	*longest_increasing_subsequence(int *numbers, int stack_size, int *lis_size)
 {
 	t_lis_arrays	arrays;
 
 	arrays.numbers = numbers;
-	arrays.size = size;
+	arrays.size = stack_size;
 	arrays.lis_ending_at = malloc(arrays.size * sizeof(int));
 	arrays.previous = malloc(arrays.size * sizeof(int));
 	arrays.lis = malloc(arrays.size * sizeof(int));
