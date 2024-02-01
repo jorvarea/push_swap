@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 23:00:33 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/31 23:00:55 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:54:56 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ int	optimal_move_index(t_list **b, int *moves_a, int *moves_b)
 	int	size;
 	int	i;
 
-	min_moves = 0;
-	min_moves_index = -1;
+	min_moves = total_moves(moves_a, moves_b, 0);
+	min_moves_index = 0;
 	size = list_size(*b);
-	i = 0;
+	i = 1;
 	while (i < size)
 	{
 		min_tmp = total_moves(moves_a, moves_b, i);
-		if (min_tmp < min_moves || min_moves == 0)
+		if (min_tmp < min_moves)
 		{
 			min_moves = min_tmp;
 			min_moves_index = i;
