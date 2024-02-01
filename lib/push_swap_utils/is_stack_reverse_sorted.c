@@ -16,7 +16,7 @@ bool	is_stack_reverse_sorted(t_list *head)
 {
 	t_list		*previous;
 	t_list		*current;
-	t_element 	max;
+	t_element	max;
 	bool		is_reverse_sorted;
 
 	is_reverse_sorted = true;
