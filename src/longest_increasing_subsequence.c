@@ -6,13 +6,13 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/31 12:12:25 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:59:34 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_arrays(t_lis_arrays *arrays, bool free_lis_array)
+static void	free_arrays(t_lis_arrays *arrays)
 {
 	if (arrays->numbers)
 		free(arrays->numbers);
@@ -20,11 +20,6 @@ static void	free_arrays(t_lis_arrays *arrays, bool free_lis_array)
 		free(arrays->lis_ending_at);
 	if (arrays->previous)
 		free(arrays->previous);
-	if (arrays->lis && free_lis_array)
-	{
-		free(arrays->lis);
-		arrays->lis = NULL;
-	}
 }
 
 static void	retrieve_subsequence(t_lis_arrays *arrays, int lis_ending_index)
@@ -101,11 +96,8 @@ int	*longest_increasing_subsequence(int *numbers, int size, int *lis_size)
 	arrays.lis = malloc(arrays.size * sizeof(int));
 	if (!arrays.numbers || !arrays.lis_ending_at || !arrays.previous
 		|| !arrays.lis)
-	{
-		free_arrays(&arrays, true);
-		return (NULL);
-	}
+		exit(EXIT_FAILURE);
 	find_lis(&arrays, lis_size);
-	free_arrays(&arrays, false);
+	free_arrays(&arrays);
 	return (arrays.lis);
 }

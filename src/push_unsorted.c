@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 22:59:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 01:19:59 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:56:25 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static int	calculate_median(t_list *a, int unsorted_size, int *lis,
 	int		i;
 
 	unsorted = malloc(unsorted_size * sizeof(int));
+	if (!unsorted)
+		exit(EXIT_FAILURE);
 	current = a;
 	i = 0;
 	while (current)
