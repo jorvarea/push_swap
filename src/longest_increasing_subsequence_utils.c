@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 02:19:45 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 13:08:13 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:11:27 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,27 @@ static void	retrieve_subsequence(t_lis_arrays *arrays, int lis_ending_index)
 	}
 }
 
+static bool	correct_subsequence(t_lis_arrays *arrays, int lis_ending_index, int current_index)
+{
+	int	i;
+
+	i = lis_ending_index;
+	while (arrays->previous[i] != -1)
+		i = arrays->previous[i];
+	return (current_index - i <= arrays->size / 2);
+}
+
 static int	find_lis_ending_at_index(t_lis_arrays *arrays, int index)
 {
 	int	lis_ending_at_index;
 	int	i;
-
+	
 	lis_ending_at_index = 1;
 	i = index;
 	while (i >= 0)
 	{
 		if (arrays->numbers[i] < arrays->numbers[index]
-			&& arrays->lis_ending_at[i] + 1 > lis_ending_at_index)
+			&& arrays->lis_ending_at[i] + 1 > lis_ending_at_index && correct_subsequence(arrays, i, index))
 		{
 			lis_ending_at_index = arrays->lis_ending_at[i] + 1;
 			arrays->previous[index] = i;

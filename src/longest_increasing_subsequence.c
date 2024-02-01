@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:32:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 02:23:14 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 14:58:57 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	*longest_increasing_subsequence(int *numbers, int stack_size, int *lis_size)
 	t_lis_arrays	arrays;
 
 	arrays.numbers = numbers;
-	arrays.size = stack_size;
+	arrays.size = stack_size * 2;
 	arrays.lis_ending_at = malloc(arrays.size * sizeof(int));
 	arrays.previous = malloc(arrays.size * sizeof(int));
 	arrays.lis = malloc(arrays.size * sizeof(int));

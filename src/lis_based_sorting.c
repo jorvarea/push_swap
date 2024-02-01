@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:23:20 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 12:44:11 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 15:24:38 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	lis_based_sorting(t_list **a, t_list **b, int stack_size)
 		swap_top_stack(a);
 		ft_printf("sa\n");
 	}
-	list2array(*a, &numbers, stack_size);
+	list2circular_array(*a, &numbers, stack_size);
 	lis = longest_increasing_subsequence(numbers, stack_size, &lis_size);
 	push_unsorted(a, b, lis, lis_size);
 	free(lis);
