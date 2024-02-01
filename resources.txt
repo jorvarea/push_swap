@@ -1,6 +1,10 @@
+# Learn about LIS algorithm
+
 https://cp-algorithms.com/sequences/longest_increasing_subsequence.html
 
 https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
+
+# Inspiration for push_swap
 
 https://medium.com/@ayogun/push-swap-c1f5d2d41e97
 
@@ -8,4 +12,8 @@ https://github.com/sisittu99/push_swap/blob/master/README_EN.md
 
 https://medium.com/@dansylvain84/my-implementation-of-the-42-push-swap-project-2706fd8c2e9f
 
+# Tools
+
 https://github.com/o-reo/push_swap_visualizer
+
+https://github.com/gemartin99/Push-Swap-Tester
