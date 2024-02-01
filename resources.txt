@@ -17,3 +17,7 @@ https://medium.com/@dansylvain84/my-implementation-of-the-42-push-swap-project-2
 https://github.com/o-reo/push_swap_visualizer
 
 https://github.com/gemartin99/Push-Swap-Tester
+
+# How to find memory leaks
+
+https://acekay.medium.com/how-to-use-leaks-command-line-tool-to-find-memory-leaks-8c19d9095333
