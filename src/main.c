@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	if (a != NULL)
 	{
 		if (!is_stack_sorted(a))
-			lis_based_sorting(&a, &b, stack_size);	
+			lis_based_sorting(&a, &b, stack_size);
 	}
 	else
 		ft_putstr_fd("Error\n", STDERR_FILENO);

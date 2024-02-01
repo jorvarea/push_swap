@@ -48,16 +48,16 @@ static int	find_lis_ending_at_index(t_lis_arrays *arrays, int index)
 	return (lis_ending_at_index);
 }
 
-static void initialize_previous(int *previous, int size)
+static void	initialize_previous(int *previous, int size)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < size)
-    {
-        previous[i] = -1;
-        i++;
-    }
+	i = 0;
+	while (i < size)
+	{
+		previous[i] = -1;
+		i++;
+	}
 }
 
 void	find_lis(t_lis_arrays *arrays, int *lis_size)
@@ -65,7 +65,7 @@ void	find_lis(t_lis_arrays *arrays, int *lis_size)
 	int	i;
 	int	lis_ending_index;
 
-    initialize_previous(arrays->previous, arrays->size);
+	initialize_previous(arrays->previous, arrays->size);
 	*lis_size = 1;
 	lis_ending_index = 0;
 	i = 0;

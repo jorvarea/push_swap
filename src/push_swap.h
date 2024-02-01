@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:19:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 02:22:20 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 02:36:49 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,19 @@ void		calculate_moves_b(t_list *b, int *moves_b);
 void		find_min(t_list *a, t_element *min);
 void		calculate_moves_a(t_list *a, t_list *b, int *moves_a);
 
+// execute_optimal_move_utils
+void		move_plus_plus(t_list **a, t_list **b, t_moves *moves,
+				int optimal_index);
+void		move_plus_minus(t_list **a, t_list **b, t_moves *moves,
+				int optimal_index);
+void		move_minus_plus(t_list **a, t_list **b, t_moves *moves,
+				int optimal_index);
+void		move_minus_minus(t_list **a, t_list **b, t_moves *moves,
+				int optimal_index);
+
+// longes_increasing_subsequence_utils
 void		find_lis(t_lis_arrays *arrays, int *lis_size);
+
 int			*longest_increasing_subsequence(int *numbers, int stack_size,
 				int *lis_size);
 void		execute_optimal_move(t_list **a, t_list **b, t_moves *moves,
