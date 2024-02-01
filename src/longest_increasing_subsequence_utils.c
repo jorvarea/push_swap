@@ -28,7 +28,8 @@ static void	retrieve_subsequence(t_lis_arrays *arrays, int lis_ending_index)
 	}
 }
 
-static bool	correct_subsequence(t_lis_arrays *arrays, int lis_ending_index, int current_index)
+static bool	correct_subsequence(t_lis_arrays *arrays, int lis_ending_index,
+		int current_index)
 {
 	int	i;
 
@@ -42,13 +43,14 @@ static int	find_lis_ending_at_index(t_lis_arrays *arrays, int index)
 {
 	int	lis_ending_at_index;
 	int	i;
-	
+
 	lis_ending_at_index = 1;
 	i = index;
 	while (i >= 0)
 	{
 		if (arrays->numbers[i] < arrays->numbers[index]
-			&& arrays->lis_ending_at[i] + 1 > lis_ending_at_index && correct_subsequence(arrays, i, index))
+			&& arrays->lis_ending_at[i] + 1 > lis_ending_at_index
+			&& correct_subsequence(arrays, i, index))
 		{
 			lis_ending_at_index = arrays->lis_ending_at[i] + 1;
 			arrays->previous[index] = i;
