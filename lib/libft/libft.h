@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 15:50:43 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 18:55:12 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:00:47 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ bool				ft_isdigit(int c);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
 int					ft_abs(int x);
+void				ft_swap(int *a, int *b);
 int					ft_atoi(const char *str, bool *read_error);
 int					ft_strcmp(const char *s1, const char *s2);
 void				ft_putstr_fd(char *str, int fd);
