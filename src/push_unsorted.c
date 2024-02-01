@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 22:59:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 01:06:43 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:19:59 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	rotate_until_next_unsorted(t_list **a, int *lis, int lis_size)
 	if (i <= j)
 		rotate_up(a, i);
 	else
-		rotate_down(a, j);
+		rotate_down(a, j + 1);
 	free(numbers);
 }
 
