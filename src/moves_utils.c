@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 13:41:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/30 21:38:34 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 20:16:43 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,27 +33,6 @@ void	calculate_moves_b(t_list *b, int *moves_b)
 			moves_b[i] = i;
 		else
 			moves_b[i] = -(size - i);
-		i++;
-	}
-}
-
-void	find_min(t_list *a, t_element *min)
-{
-	t_list	*current;
-	int		i;
-
-	min->node = a;
-	min->index = 0;
-	i = 0;
-	current = a;
-	while (current)
-	{
-		if (current->number < min->node->number)
-		{
-			min->node = current;
-			min->index = i;
-		}
-		current = current->next;
 		i++;
 	}
 }

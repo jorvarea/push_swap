@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 23:19:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 02:36:49 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 20:17:34 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,6 @@ typedef struct s_moves
 	int		*a;
 	int		*b;
 }			t_moves;
-
-typedef struct s_element
-{
-	t_list	*node;
-	int		index;
-}			t_element;
 
 // stack_selection_sort
 void		stack_selection_sort(t_list **a, t_list **b, int stack_len);
