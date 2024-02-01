@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 22:59:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/01 01:01:11 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:06:43 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,24 @@ static int	calculate_median(t_list *a, int unsorted_size, int *lis,
 	return (median);
 }
 
+static void	rotate_up(t_list **a, int times)
+{
+	while (times--)
+	{
+		rotate_stack_up(a);
+		ft_printf("ra\n");
+	}
+}
+
+static void	rotate_down(t_list **a, int times)
+{
+	while (times--)
+	{
+		rotate_stack_down(a);
+		ft_printf("rra\n");
+	}
+}
+
 static void	rotate_until_next_unsorted(t_list **a, int *lis, int lis_size)
 {
 	int	*numbers;
@@ -54,21 +72,9 @@ static void	rotate_until_next_unsorted(t_list **a, int *lis, int lis_size)
 	while (array_contains(lis, lis_size, numbers[stack_size - j - 1]))
 		j++;
 	if (i <= j)
-	{
-		while (i--)
-		{
-			rotate_stack_up(a);
-			ft_printf("ra\n");
-		}
-	}
+		rotate_up(a, i);
 	else
-	{
-		while (j--)
-		{
-			rotate_stack_down(a);
-			ft_printf("rra\n");
-		}
-	}
+		rotate_down(a, j);
 	free(numbers);
 }
 
