@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 22:45:14 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/31 11:44:22 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/01 01:50:28 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@ void	list2array(t_list *head, int **array, int size)
 	int		i;
 
 	*array = malloc(size * sizeof(int));
-	if (*array)
+	if (!*array)
+		exit(EXIT_FAILURE);
+	current = head;
+	i = 0;
+	while (i < size)
 	{
-		current = head;
-		i = 0;
-		while (i < size)
-		{
-			(*array)[i] = current->number;
-			current = current->next;
-			i++;
-		}
+		(*array)[i] = current->number;
+		current = current->next;
+		i++;
 	}
 }
